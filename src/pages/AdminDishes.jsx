@@ -18,7 +18,7 @@ export default function AdminDishes() {
 
   const fetchDishes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/dishes", {
+      const res = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/api/admin/dishes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDishes(res.data);
@@ -45,7 +45,7 @@ export default function AdminDishes() {
 
     try {
       if (editId) {
-        const res = await axios.put(`http://localhost:5000/api/admin/dishes/${editId}`, formData, {
+        const res = await axios.put(`${import.meta.env.VITE_REACT_APP_API_URL}/api/admin/dishes/${editId}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ export default function AdminDishes() {
         setDishes(updatedDishes);
         setEditId(null);
       } else {
-        const res = await axios.post("http://localhost:5000/api/admin/dishes", formData, {
+        const res = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/admin/dishes`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ export default function AdminDishes() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/dishes/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_REACT_APP_API_URL}/api/admin/dishes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setDishes(dishes.filter((dish) => dish._id !== id));
@@ -96,8 +96,8 @@ export default function AdminDishes() {
       category: dish.category || "",
     });
     setEditId(dish._id);
-    setImage(null); // optional: you can preload the existing image if needed
-    window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to form
+    setImage(null); 
+    window.scrollTo({ top: 0, behavior: "smooth" }); 
   };
 
   const cancelEdit = () => {
@@ -114,7 +114,8 @@ export default function AdminDishes() {
       <div className="bg-white shadow rounded-lg p-6 mb-10">
         <h3 className="text-xl font-semibold mb-4">{editId ? "Edit Dish" : "Add New Dish"}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Dish Name */}
+
+{/* Dish Name */}
 <input
   placeholder="Dish Name"
   className="border p-2 rounded"
@@ -216,7 +217,7 @@ export default function AdminDishes() {
           dishes.map((dish) => (
             <div key={dish._id} className="border p-4 rounded shadow-sm bg-white">
               <img
-                src={`http://localhost:5000${dish.imageUrl}`}
+                src={`${import.meta.env.VITE_REACT_APP_API_URL}${dish.imageUrl}`}
                 alt={dish.name}
                 className="w-full h-48 object-cover rounded"
               />

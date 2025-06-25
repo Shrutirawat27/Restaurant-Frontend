@@ -8,18 +8,29 @@ import "swiper/css/pagination";
 
 export default function Dishes() {
   const [dishes, setDishes] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const API = import.meta.env.VITE_REACT_APP_API_URL || process.env.REACT_APP_API_URL;
 
   useEffect(() => {
+    console.log("Fetching from:", API);
+
     axios
-      .get("http://localhost:5000/api/dishes")
+      .get(`${API}/api/dishes`)
       .then((res) => {
+        console.log("Fetched Dishes:", res.data);
         setDishes(res.data);
       })
-      .catch((err) => console.error("Error fetching dishes:", err));
+      .catch((err) => {
+        console.error("Error fetching dishes:", err);
+        setError("⚠️ Could not load dishes.");
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   const specialDishes = dishes.filter(
-    (dish) => dish.special === true || dish.special === "true"
+    (dish) => dish?.special === true || dish?.special === "true"
   );
 
   return (
@@ -74,44 +85,54 @@ export default function Dishes() {
 
       {/* Swiper Carousel */}
       <div className="max-w-6xl mx-auto relative px-2">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {specialDishes.length === 0 ? (
-            <p className="text-center text-gray-500">No special dishes available.</p>
-          ) : (
-            specialDishes.map((dish, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="h-full flex flex-col border rounded-lg overflow-hidden shadow hover:shadow-lg transition bg-white min-h-[440px]">
-                  <img
-                    src={`http://localhost:5000${dish.imageUrl}`}
-                    alt={dish.name}
-                    className="w-full h-64 sm:h-72 object-cover"
-                  />
-                  <div className="p-4 text-center flex-grow flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-semibold mb-1">{dish.name}</h3>
-                      <p className="text-gray-600 text-sm mb-2">{dish.description}</p>
+        {loading ? (
+          <p className="text-center text-gray-400">Loading special dishes...</p>
+        ) : error ? (
+          <p className="text-center text-red-600">{error}</p>
+        ) : specialDishes.length === 0 ? (
+          <p className="text-center text-gray-500">No special dishes available.</p>
+        ) : (
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {specialDishes.map((dish, idx) =>
+              dish && dish.name && dish.price ? (
+                <SwiperSlide key={idx}>
+                  <div className="h-full flex flex-col border rounded-lg overflow-hidden shadow hover:shadow-lg transition bg-white min-h-[440px]">
+                    <img
+                      src={
+                        dish.imageUrl
+                          ? `${API}${dish.imageUrl}`
+                          : "/default-dish.jpg"
+                      }
+                      alt={dish.name || "Dish"}
+                      className="w-full h-64 sm:h-72 object-cover"
+                    />
+                    <div className="p-4 text-center flex-grow flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-1">{dish.name}</h3>
+                        <p className="text-gray-600 text-sm mb-2">{dish.description}</p>
+                      </div>
+                      <p className="text-green-600 font-bold text-base sm:text-lg mt-1">
+                        ${dish.price}
+                      </p>
                     </div>
-                    <p className="text-green-600 font-bold text-base sm:text-lg mt-1">
-                      ${dish.price}
-                    </p>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))
-          )}
-        </Swiper>
+                </SwiperSlide>
+              ) : null
+            )}
+          </Swiper>
+        )}
       </div>
     </section>
   );

@@ -30,7 +30,6 @@ export default function Home() {
     </div>
 
     {/* Right Side – Image */}
-    {/* Right Side – Image */}
 <div className="md:w-1/2 w-full flex justify-center items-center">
   <img
     src="/Hero1.png"
@@ -41,7 +40,6 @@ export default function Home() {
 
   </div>
 </section>
-
 
       {/* Special Dishes Section */}
       <Dishes />

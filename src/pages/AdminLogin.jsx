@@ -11,13 +11,13 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/login", {
+      const res = await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/api/admin/login`, {
         username,
         password,
       });
 
-      localStorage.setItem("token", res.data.token); // Save token
-      navigate("/admin/dishes"); // Redirect
+      localStorage.setItem("token", res.data.token); 
+      navigate("/admin/dishes"); 
     } catch (err) {
       setError("Invalid username or password");
     }

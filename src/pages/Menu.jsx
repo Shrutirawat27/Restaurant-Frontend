@@ -6,7 +6,7 @@ export default function Menu() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/dishes")
+      .get(`${import.meta.env.VITE_REACT_APP_API_URL}/api/dishes`)
       .then((res) => {
         const nonSpecialDishes = res.data.filter((dish) => !dish.special);
         setMenuDishes(nonSpecialDishes);
@@ -14,7 +14,7 @@ export default function Menu() {
       .catch((err) => console.error("Error fetching dishes:", err));
   }, []);
 
-  // 🔁 Group by category
+  // Group by category
   const groupedByCategory = menuDishes.reduce((acc, dish) => {
     const category = dish.category || "Others";
     if (!acc[category]) acc[category] = [];
