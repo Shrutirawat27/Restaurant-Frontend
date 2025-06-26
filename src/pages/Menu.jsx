@@ -14,7 +14,6 @@ export default function Menu() {
       .catch((err) => console.error("Error fetching dishes:", err));
   }, []);
 
-  // Group by category
   const groupedByCategory = menuDishes.reduce((acc, dish) => {
     const category = dish.category || "Others";
     if (!acc[category]) acc[category] = [];
@@ -30,7 +29,7 @@ export default function Menu() {
           Menu
         </h2>
 
-        {/* No Items Case */}
+        {/* No Items */}
         {Object.keys(groupedByCategory).length === 0 ? (
           <p className="text-gray-500 text-center">No items in menu yet.</p>
         ) : (

@@ -110,7 +110,7 @@ export default function AdminDishes() {
     <div className="max-w-5xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold text-center mb-8 text-[#38ac2c]">Admin Dish Panel</h2>
 
-      {/* Add / Edit Form */}
+      {/* Add Form */}
       <div className="bg-white shadow rounded-lg p-6 mb-10">
         <h3 className="text-xl font-semibold mb-4">{editId ? "Edit Dish" : "Add New Dish"}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -140,7 +140,7 @@ export default function AdminDishes() {
   onChange={(e) => setNewDish({ ...newDish, price: e.target.value })}
 />
 
-{/* Image Upload (only required if special is true) */}
+{/* Image Upload */}
 {newDish.special && (
   <label className="flex items-center gap-4 cursor-pointer">
     <img
@@ -158,7 +158,7 @@ export default function AdminDishes() {
   </label>
 )}
 
-{/* Category Dropdown (only shown if not special) */}
+{/* Category Dropdown */}
 {!newDish.special && (
   <select
     className="border p-2 rounded"

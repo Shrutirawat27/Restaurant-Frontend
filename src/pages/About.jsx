@@ -26,7 +26,7 @@ const About = () => {
             Whether you're dining in or ordering out, we ensure a delicious experience with warm hospitality and the essence of Indian spices.
           </p>
 
-          {/* Read More Button (Shown here only if not expanded) */}
+          {/* Read More Button */}
           {!showMore && (
             <button
               onClick={() => setShowMore(true)}
@@ -47,7 +47,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* Expanded Section (Boxes) */}
       {showMore && (
         <>
           <h3 className="text-2xl font-bold text-green-700 mt-12 mb-6 text-center">Why Choose Us?</h3>
@@ -85,7 +84,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Move Button Down When Expanded */}
           <button
             onClick={() => setShowMore(false)}
             className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 mt-10 rounded font-semibold transition"
