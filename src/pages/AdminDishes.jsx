@@ -217,7 +217,7 @@ export default function AdminDishes() {
           dishes.map((dish) => (
             <div key={dish._id} className="border p-4 rounded shadow-sm bg-white">
               <img
-                src={`${import.meta.env.VITE_REACT_APP_API_URL}${dish.imageUrl}`}
+                src={dish.imageUrl || "/default-dish.jpg"}
                 alt={dish.name}
                 className="w-full h-48 object-cover rounded"
               />

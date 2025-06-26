@@ -110,11 +110,7 @@ export default function Dishes() {
                 <SwiperSlide key={idx}>
                   <div className="h-full flex flex-col border rounded-lg overflow-hidden shadow hover:shadow-lg transition bg-white min-h-[440px]">
                     <img
-                      src={
-                        dish.imageUrl
-                          ? `${API}${dish.imageUrl}`
-                          : "/default-dish.jpg"
-                      }
+                      src={dish.imageUrl || "/default-dish.jpg"}
                       alt={dish.name || "Dish"}
                       className="w-full h-64 sm:h-72 object-cover"
                     />
