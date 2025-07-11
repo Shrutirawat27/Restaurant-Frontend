@@ -40,9 +40,9 @@ const About = () => {
         {/* Right Image */}
         <div className="md:w-1/2 w-full flex justify-center items-center">
           <img
-            src="/AboutUs.png"
+            src="/AboutUs1.png"
             alt="About Us"
-            className="w-full max-w-[550px] h-auto object-contain"
+            className="w-full max-w-[500px] h-auto object-contain"
           />
         </div>
       </div>

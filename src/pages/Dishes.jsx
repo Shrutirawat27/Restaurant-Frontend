@@ -98,7 +98,7 @@ export default function Dishes() {
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },

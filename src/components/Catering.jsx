@@ -7,7 +7,7 @@ const cateringOptions = [
   },
   {
     title: "Wedding Reception",
-    image: "/Wedding.png",
+    image: "/Wedding1.jpg",
   },
   {
     title: "Corporate Events",
