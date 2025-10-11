@@ -9,12 +9,12 @@ const contactDetails = [
   },
   {
     title: "Call Us",
-    info: "847-378-8044",
+    info: "+1.2245781805",
     icon: <PhoneIcon />,
   },
   {
     title: "Email Us",
-    info: "info@example.com",
+    info: "zaikaindiancuisine1051@gmail.com",
     icon: <EnvelopeIcon />,
   },
   {
