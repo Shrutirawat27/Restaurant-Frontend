@@ -3,7 +3,7 @@ import React from "react";
 const cateringOptions = [
   {
     title: "Private Party",
-    image: "/Privateparty.png",
+    image: "/Privateparty2.jpg",
   },
   {
     title: "Wedding Reception",
@@ -15,7 +15,7 @@ const cateringOptions = [
   },
   {
     title: "Birthday Party",
-    image: "/Birthday.png",
+    image: "/Birthday2.jpg",
   },
 ];
 

@@ -24,7 +24,7 @@ export default function Dishes() {
       })
       .catch((err) => {
         console.error("Error fetching dishes:", err);
-        setError("⚠️ Could not load dishes.");
+        setError("Could not load dishes.");
       })
       .finally(() => setLoading(false));
   }, []);
