@@ -58,7 +58,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="/grubhub-logo.png"
+                  src="/grubhub-logo.jpg"
                   alt="Grubhub"
                   className="w-20 h-20 hover:scale-110 transition-transform"
                 />
