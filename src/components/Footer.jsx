@@ -34,7 +34,7 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
           <p className="text-sm">1051 Elmhurst Rd. Des Plaines, IL 60016</p>
-          <p className="text-sm mt-2">Phone: +1.2245781805</p>
+          <p className="text-sm mt-2">Phone: +1.8473788044</p>
           <p className="text-sm mt-2">Email: zaikaindiancuisine1051@gmail.com</p>
         </div>
 

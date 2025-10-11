@@ -9,7 +9,7 @@ const contactDetails = [
   },
   {
     title: "Call Us",
-    info: "+1.2245781805",
+    info: "+1.8473788044",
     icon: <PhoneIcon />,
   },
   {
