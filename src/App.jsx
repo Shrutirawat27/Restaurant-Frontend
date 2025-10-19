@@ -16,10 +16,10 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
-      {/* ✅ Scroll to top on every route change */}
+      {/* Scroll to top on every route change */}
       <ScrollToTop />
 
-      {/* ✅ Navbar always visible */}
+      {/* Navbar always visible */}
       <Navbar />
 
       <Routes>
@@ -38,7 +38,7 @@ const App = () => {
         />
       </Routes>
 
-      {/* ✅ Footer always visible */}
+      {/* Footer always visible */}
       <Footer />
 
       <ToastContainer />

@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Menu() {
   const [menuDishes, setMenuDishes] = useState([]);
   const [expandedCategories, setExpandedCategories] = useState({});
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     axios
@@ -14,7 +14,7 @@ export default function Menu() {
         setMenuDishes(nonSpecialDishes);
       })
       .catch((err) => console.error("Error fetching dishes:", err))
-      .finally(() => setLoading(false)); // ✅ Stop loading after request finishes
+      .finally(() => setLoading(false)); 
   }, []);
 
   const groupedByCategory = menuDishes.reduce((acc, dish) => {
@@ -39,11 +39,11 @@ export default function Menu() {
           Menu
         </h2>
 
-        {/* ✅ Loading State */}
+        {/* Loading State */}
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="w-10 h-10 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
-            <p className="mt-4 text-green-700 font-medium text-lg">
+            <div className="w-10 h-10 border-4 border-black-600 border-t-transparent rounded-full animate-spin"></div>
+            <p className="mt-4 text-black-700 font-medium text-lg">
               Loading menu...
             </p>
           </div>

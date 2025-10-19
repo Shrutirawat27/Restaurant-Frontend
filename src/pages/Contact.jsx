@@ -16,7 +16,7 @@ const contactDetails = [
   },
   {
     title: "Call Us",
-    info: "+1.2245781805",
+    info: "+1.8473788044",
     icon: <PhoneIcon />,
     type: "phone",
   },
@@ -73,7 +73,6 @@ const Contact = () => {
                 {item.title}
               </h3>
 
-              {/* Conditional rendering for clickable items with black color */}
               {item.type === "email" ? (
                 <a
                   href={`mailto:${item.info}`}

@@ -46,7 +46,7 @@ const Footer = () => {
           <p className="text-sm mt-2">
             Phone:{" "}
             <a href="tel:+12245781805" className="text-gray-300 hover:text-gray-100">
-              +1.2245781805
+              +1.8473788044
             </a>
           </p>
           <p className="text-sm mt-2">

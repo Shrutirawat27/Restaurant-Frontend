@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // 🟢 Import for navigation
+import { useNavigate } from "react-router-dom"; 
 
 const cateringOptions = [
   {
@@ -21,10 +21,10 @@ const cateringOptions = [
 ];
 
 const Catering = () => {
-  const navigate = useNavigate(); // 🟢 Hook for navigation
+  const navigate = useNavigate(); 
 
   const handleRedirect = () => {
-    navigate("/contact"); // 🟢 Redirect to contact page
+    navigate("/contact"); 
   };
 
   return (
@@ -45,7 +45,7 @@ const Catering = () => {
         {cateringOptions.map((item, index) => (
           <div
             key={index}
-            onClick={handleRedirect} // 🟢 Clickable
+            onClick={handleRedirect} 
             className="relative overflow-hidden rounded-lg shadow-md group cursor-pointer hover:shadow-xl transition-shadow duration-300"
           >
             <img
