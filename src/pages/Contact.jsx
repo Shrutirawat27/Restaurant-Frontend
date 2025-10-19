@@ -1,32 +1,42 @@
 import React from "react";
-import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from "@heroicons/react/24/solid";
+import {
+  MapPinIcon,
+  PhoneIcon,
+  EnvelopeIcon,
+  ClockIcon,
+} from "@heroicons/react/24/solid";
 
 const contactDetails = [
   {
     title: "Address",
     info: "1051 Elmhurst Rd. Des Plaines, IL 60016",
     icon: <MapPinIcon />,
+    type: "address",
+    mapLink: "https://www.google.com/maps/place/1051+Elmhurst+Rd,+Des+Plaines,+IL+60016",
   },
   {
     title: "Call Us",
     info: "+1.2245781805",
     icon: <PhoneIcon />,
+    type: "phone",
   },
   {
     title: "Email Us",
     info: "zaikaindiancuisine1051@gmail.com",
     icon: <EnvelopeIcon />,
+    type: "email",
   },
   {
     title: "Opening Hours",
     info: "Mon–Sun: 11:30AM – 9:30PM\nTuesday: Closed",
     icon: <ClockIcon />,
+    type: "text",
   },
 ];
 
 const Contact = () => {
   return (
-    <section className="bg-white-100 py-16 px-4">
+    <section className="bg-white py-16 px-4">
       <div className="text-center mb-10">
         <h2 className="text-[36px] md:text-[44px] font-bold text-[#2d2e2e]">
           Need Help? Contact Us
@@ -46,6 +56,7 @@ const Contact = () => {
         ></iframe>
       </div>
 
+      {/* Contact Info Grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 px-2">
         {contactDetails.map((item, index) => (
           <div
@@ -58,8 +69,37 @@ const Contact = () => {
               })}
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">{item.title}</h3>
-              <p className="text-gray-600 whitespace-pre-line">{item.info}</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                {item.title}
+              </h3>
+
+              {/* Conditional rendering for clickable items with black color */}
+              {item.type === "email" ? (
+                <a
+                  href={`mailto:${item.info}`}
+                  className="text-gray-800 break-all hover:text-gray-900"
+                >
+                  {item.info}
+                </a>
+              ) : item.type === "phone" ? (
+                <a
+                  href={`tel:${item.info}`}
+                  className="text-gray-800 hover:text-gray-900"
+                >
+                  {item.info}
+                </a>
+              ) : item.type === "address" ? (
+                <a
+                  href={item.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-800 break-all hover:text-gray-900"
+                >
+                  {item.info}
+                </a>
+              ) : (
+                <p className="text-gray-600 whitespace-pre-line">{item.info}</p>
+              )}
             </div>
           </div>
         ))}

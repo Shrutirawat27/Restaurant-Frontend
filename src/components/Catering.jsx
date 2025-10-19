@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // 🟢 Import for navigation
 
 const cateringOptions = [
   {
@@ -20,6 +21,12 @@ const cateringOptions = [
 ];
 
 const Catering = () => {
+  const navigate = useNavigate(); // 🟢 Hook for navigation
+
+  const handleRedirect = () => {
+    navigate("/contact"); // 🟢 Redirect to contact page
+  };
+
   return (
     <section className="bg-white py-16 px-4">
       {/* Section Title */}
@@ -38,14 +45,15 @@ const Catering = () => {
         {cateringOptions.map((item, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg shadow-md group"
+            onClick={handleRedirect} // 🟢 Clickable
+            className="relative overflow-hidden rounded-lg shadow-md group cursor-pointer hover:shadow-xl transition-shadow duration-300"
           >
             <img
               src={item.image}
               alt={item.title}
               className="w-full h-56 sm:h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-2 text-center">
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-2 text-center group-hover:bg-black/50 transition-colors duration-300">
               <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold">
                 {item.title}
               </h3>

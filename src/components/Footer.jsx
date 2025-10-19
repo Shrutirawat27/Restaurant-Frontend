@@ -23,19 +23,41 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/" className="hover:text-green-500">Home</Link></li>
-            <li><Link to="/menu" className="hover:text-green-500">Menu</Link></li>
-            <li><Link to="/about" className="hover:text-green-500">About</Link></li>
-            <li><Link to="/contact" className="hover:text-green-500">Contact</Link></li>
+            <li><Link to="/" className="hover:text-gray-100">Home</Link></li>
+            <li><Link to="/menu" className="hover:text-gray-100">Menu</Link></li>
+            <li><Link to="/about" className="hover:text-gray-100">About</Link></li>
+            <li><Link to="/contact" className="hover:text-gray-100">Contact</Link></li>
           </ul>
         </div>
 
         {/* Contact Info */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
-          <p className="text-sm">1051 Elmhurst Rd. Des Plaines, IL 60016</p>
-          <p className="text-sm mt-2">Phone: +1.2245781805</p>
-          <p className="text-sm mt-2">Email: zaikaindiancuisine1051@gmail.com</p>
+          <p className="text-sm">
+            <a
+              href="https://www.google.com/maps/place/1051+Elmhurst+Rd,+Des+Plaines,+IL+60016"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-gray-100"
+            >
+              1051 Elmhurst Rd. Des Plaines, IL 60016
+            </a>
+          </p>
+          <p className="text-sm mt-2">
+            Phone:{" "}
+            <a href="tel:+12245781805" className="text-gray-300 hover:text-gray-100">
+              +1.2245781805
+            </a>
+          </p>
+          <p className="text-sm mt-2">
+            Email:{" "}
+            <a
+              href="mailto:zaikaindiancuisine1051@gmail.com"
+              className="text-gray-300 hover:text-gray-100 break-all"
+            >
+              zaikaindiancuisine1051@gmail.com
+            </a>
+          </p>
         </div>
 
         {/* Instagram Images */}
